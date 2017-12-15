@@ -12,9 +12,9 @@
 
 - Le language utilisé est python pour que notre algorithme pourrait être compréhensible par tous les data scientist malgré qu'avec java, on aurait pu gagner plus de temps d'execution. Le temps d'exucution de kmeans distribué est beaucoup plus long que celui du kmeans non distribué dans notre cas à cause de :
 
-      / petit taille du fichier généré
-      / cluster sur une seule machine
-      / cluster locale
+      * petit taille du fichier généré
+      * cluster sur une seule machine
+      * cluster locale
       
 - on a utilisé mrjob sur python vu qu'elle supporte hadoop et emr facilement
 
