@@ -1,9 +1,30 @@
-tutorial link is https://youtu.be/jvmfOnJzsXk
+- tutorial link is https://youtu.be/jvmfOnJzsXk
 
-the report is the same in both format hmtl and ipynb
+- the report is the same in both format hmtl and ipynb
 
-to run the program on other machine , you need to change the local paths in multirun.py 
+- you can check the report directly on github using the format ipynb and not html
 
-the code in the report is well commented (50% code / 50% comments and explication step by step ) 
+- to run the program on other machine , you need to change the local paths in multirun.py 
 
-the code in source files is not well commented
+- the code in the report is well commented (50% code / 50% comments and explication step by step ) 
+
+- the same code is in source files but not well commented
+
+- Le language utilisé est python pour que notre algorithme pourrait être compréhensible par tous les data scientist malgré qu'avec java, on aurait pu gagner plus de temps d'execution. Le temps d'exucution de kmeans distribué est beaucoup plus long que celui du kmeans non distribué dans notre cas à cause de :
+
+      / petit taille du fichier généré
+      / cluster sur une seule machine
+      / cluster locale
+      
+- on a utilisé mrjob sur python vu qu'elle supporte hadoop et emr facilement
+
+- En utilisant Amazon Elastic Mapreduce (service payant) le résultat serait incomparable avec un fichier de grosse taille 
+
+- To calculate accuracy for the mapreduce , we need to sort the predicted points and sort the original points so that we can compare their classe because reducers does not save the order in parallel compute (accuracy of our algorithm is about 95,23% a little bit less than the single run kmeans because we are using a small file which is not the case for big files) 
+pour exécuter le programme sur une autre machine, il faut faut changer les chemins locaux dans multirun.py
+
+- pour exécuter le programme sur hadoop , il suffit d'ajouter hadoop à la ligne de commande d'appel du programme et il faut changer les configuration des arguments dans le main program et il faut préciser à hadoop quels sonts les mappers et les reducers, c'est simple vu que mrjob supporte hadoop facilement
+
+- pour exécuter sur amazon elastic map reduce il faut ajouter emr à la ligne de commande d'appel du programe
+
+- si on fait pas appel à hadoop ou à emr comme dans notre cas , mrjob crée son propre cluster distribué dans la machine locale , cette méthode est généralement utilisé pour le test de l'algorithme avant de l'utiliser avec des gros fichiers dans des plateforme payante qui ne tolére pas le fail d'exécution (on paye toujours , c'est le cas de amazon emr)
