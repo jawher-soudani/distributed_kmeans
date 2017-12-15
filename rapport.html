@@ -15467,6 +15467,12 @@ Le temps d'exucution de kmeans distribué est beaucoup plus long que celui du km
 <li>To calculate accuracy for the mapreduce , we need to sort the predicted points and sort the original points so that we can compare their classe because reducers does not save the order in parallel compute (accuracy of our algorithm is about 95,23% a little bit less than the single run kmeans because we are using a small file which is not the case for big files)</li>
 <li><p>pour exécuter le programme sur une autre machine, il faut faut changer les chemins locaux dans multirun.py</p>
 </li>
+<li><p>pour exécuter le programme sur hadoop , il suffit d'ajouter hadoop à la ligne de commande d'appel du programme et il faut changer les configuration des arguments dans le main program et il faut préciser à hadoop quels sonts les mappers et les reducers, c'est simple vu que mrjob supporte hadoop facilement</p>
+</li>
+<li><p>pour exécuter sur amazon elastic map reduce il faut ajouter emr à la ligne de commande d'appel du programe</p>
+</li>
+<li><p>si on fait pas appel à hadoop ou à emr comme dans notre cas , mrjob crée son propre cluster distribué dans la machine locale , cette méthode est généralement utilisé pour le test de l'algorithme avant de l'utiliser avec des gros fichiers dans des plateforme payante qui ne tolére pas le fail d'exécution (on paye toujours , c'est le cas de amazon emr)</p>   
+ </li>   
 <li><p>le code dans le rapport est bien commenté (code 50% / commentaires 50% et explication étape par étape)</p>
 </li>
 <li><p>le code dans les fichiers source n'est pas bien commenté</p>
